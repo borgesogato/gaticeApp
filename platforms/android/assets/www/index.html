@@ -1,49 +1,492 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gatice</title>
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+    <!-- Google Fonts embed code -->
+    <script type="text/javascript">
+            (function() {
+                var link_element = document.createElement("link"),
+                    s = document.getElementsByTagName("script")[0];
+                if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
+                    link_element.href = "http:";
+                }
+                link_element.href += "//fonts.googleapis.com/css?family=Roboto:100italic,100,300italic,300,400italic,400,500italic,500,700italic,700,900italic,900";
+                link_element.rel = "stylesheet";
+                link_element.type = "text/css";
+                s.parentNode.insertBefore(link_element, s);
+            })();
+    </script>
+</head>
+
+<body>
+<main>
+    <!-- Tela Inicial -->
+    <section id="cadastrar" class="collapse">
+        <div><img src="img/logo1.png" class="logo-main img-responsive"/></div>
+        <div class="btn-group-vertical footer " role="group" aria-label="..." style="width: 100%;">
+            <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#" role="button" data-target = "#login">LOG IN</a>
+
+            <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" data-target="#enroll" href="#" type="button">CADASTRAR</a>
+        </div>
+    </section>
+    <!-- Log In -->
+    <section id="login" class ="collapse login-background">
+        <img src="img/logo2.png" class="img-responsive logo-2">
+        <h3 class="text-center"><p class="weight12">LOG IN</p></h3>
+        <form>
+            <div class="divText">
+                <input class="form-control input-lg text-center" type="text" placeholder="Nome do Usuário">
+            </div>
+            <div class="divText">
+                <input class="form-control input-lg text-center" type="text" placeholder="Senha">
+            </div>
+            <div class="forgot">
+                <a href="#">Esqueceu a senha?</a>
+            </div>
+            </div>
+            <div style="width: 100%;margin-top: 5%;">
+                <div style="margin: 0 auto;width: 50%; ">
+                    <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#cats">LOG IN</button>
+                </div>
+            </div>
+        </form>
+        <img src="img\botao-entrar-facebook-1e65358dce001d3dd5f5a3474d1abfca.png" class="img-responsive margin center-block">
+    </section>
+    <!-- Cadastro -->
+    <section id="enroll" class="collapse login-background">
+        <img src="img/logo2.png" class="img-responsive logo-2">
+        <h3 class="text-center">CADASTRAR</h3>
+        <form>
+            <div class="divText">
+                <input id="enrollUserName" class="form-control input-lg text-center" type="text" id="nomeUsuario"placeholder="Nome do Usuário">
+            </div>
+            <div class="divText">
+                <input id="enrollPassword" class="form-control input-lg text-center" type="text" placeholder="Senha">
+            </div>
+            <div class="divText">
+                <input id="enrollAcceptPassword" class="form-control input-lg text-center" type="text" placeholder="Repetir Senha">
+            </div>
+            <div class="divText">
+                <input id="enrollEmail" class="form-control input-lg text-center" type="text" placeholder="Email">
+            </div>
+            <div class="divText">
+                <input id="enrollAcceptEmail" class="form-control input-lg text-center" type="text" placeholder="Repetir Email">
+            </div>
+            <div style="width: 100%;margin-top: 5%;">
+                <div style="margin: 0 auto;width: 50%; ">
+                    <button id="enrollFinish" type="button" class="btn btn-success">CONCLUIR</button>
+                </div>
+            </div>
+        </form>
+        <img src="img\botao-entrar-facebook-1e65358dce001d3dd5f5a3474d1abfca.png" class="img-responsive margin center-block">
+    </section>
+
+    <!-- Gatos > Menu-top -->
+    <section id="cats" class ="collapse home">
+        <div class="row nav-menu">
+            <div class="col-xs-3">
+                <a href="#" data-toggle="collapse" data-target="#cadastrar">
+                    <img class="logo-3 img-responsive" src="img/logo3.png" align="left">
+                </a>
+            </div>
+            <div class="col-xs-6 titulo">
+                <p class="weight12">MEUS GATOS</p>
+            </div>
+            <div class="col-xs-3">
+                <a href="#" data-toggle="collapse" data-target="#">
+                    <img class="menu-lateral img-responsive" src="img/menu-3-barras.png" align="right">
+                </a>
             </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+        <!-- Borges -->
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="#" data-toggle="collapse" data-target="#borges">
+                    <div class="gatos1">
+                        <img class="img-responsive" src="img/borges.png">
+                        <h4 class="nome-gato weight6">BORGES</h4>
+                    </div>
+                </a>
+            </div>
+            <!-- Christie -->
+            <div class="col-xs-6">
+                <a href="#" data-toggle="collapse" data-target="#christie">
+                    <div class="gatos2">
+                        <img class="img-responsive" src="img/christie.png">
+                        <h4 class="nome-gato weight6">CHRISTIE</h4>
+                    </div>
+                </a>
+            </div>
+            <!-- Pessoa -->
+            <div class="col-xs-6">
+                <a href="#" data-toggle="collapse" data-target="#pessoa">
+                    <div class="gatos1">
+                        <img class="img-responsive" src="img/pessoa.png">
+                        <h4 class="nome-gato weight6">PESSOA</h4>
+                    </div>
+                </a>
+            </div>
+            <!-- Adicionar -->
+            <div class="col-xs-6">
+                <a href="#" data-toggle="collapse" data-target="#adicionar">
+                    <div class="gatos2">
+                        <img class="img-responsive" src="img/adicionar.png">
+                        <h4 class="nome-gato weight6">ADICIONAR</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Borges -->
+    <!-- Borges > Menu-top -->
+    <section id="borges" class="collapse info">
+        <div class="row nav-menu">
+            <div class="col-xs-3">
+                <a href="#" data-toggle="collapse" data-target="#cats">
+                    <img class="back img-responsive" src="img/voltar.png">
+                </a>
+            </div>
+            <div class="col-xs-6 titulo">
+                <p class="weight12">BORGES</p>
+            </div>
+            <div class="col-xs-3">
+                <a href="#" data-toggle="collapse" data-target="#">
+                    <img class="menu-lateral img-responsive" src="img/menu-3-barras.png" align="right">
+                </a>
+            </div>
+        </div>
+        <!-- Dados Básicos -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/dados-basicos.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 dados-texto">Dados Básicos</p>
+                </div>
+            </a>
+        </div>
+        <!-- Saúde -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/saude.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 saude-texto">Saúde</p>
+                </div>
+            </a>
+        </div>
+        <!-- Rotina -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/rotina.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 rotina-texto">Rotina</p>
+                </div>
+            </a>
+        </div>
+        <!-- Enquetes -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/enquetes.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 enquetes-texto">Enquetes</p>
+                </div>
+            </a>
+        </div>
+        <!-- RG Felino -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/rg.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 rg-texto">RG Felino</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Christie -->
+    <!-- Christie > Menu-top -->
+    <section id="christie" class="collapse info">
+        <div class="row nav-menu">
+            <div class="col-xs-3">
+                <a href="#" data-toggle="collapse" data-target="#cats">
+                    <img class="back img-responsive" src="img/voltar.png">
+                </a>
+
+            </div>
+            <div class="col-xs-6 titulo">
+                <p class="weight12">CHRISTIE</p>
+            </div>
+
+            <div class="col-xs-3">
+                <a href="#" data-toggle="collapse" data-target="#">
+                    <img class="menu-lateral img-responsive" src="img/menu-3-barras.png" align="right">
+                </a>
+            </div>
+        </div>
+        <!-- Dados Básicos -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/dados-basicos.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 dados-texto">Dados Básicos</p>
+                </div>
+            </a>
+        </div>
+        <!-- Saúde -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/saude.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 saude-texto">Saúde</p>
+                </div>
+            </a>
+        </div>
+        <!-- Rotina -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/rotina.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 rotina-texto">Rotina</p>
+                </div>
+            </a>
+        </div>
+        <!-- Enquetes -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/enquetes.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 enquetes-texto">Enquetes</p>
+                </div>
+            </a>
+        </div>
+        <!-- RG Felino -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/rg.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 rg-texto">RG Felino</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Pessoa -->
+    <!-- Pessoa > Menu-top -->
+    <section id="pessoa" class="collapse info">
+        <div class="row nav-menu">
+            <div class="col-xs-3">
+                <a href="#" data-toggle="collapse" data-target="#cats">
+                    <img class="back img-responsive" src="img/voltar.png">
+                </a>
+
+            </div>
+            <div class="col-xs-6 titulo">
+                <p class="weight12">PESSOA</p>
+            </div>
+
+            <div class="col-xs-3">
+                <a href="#" data-toggle="collapse" data-target="#">
+                    <img class="menu-lateral img-responsive" src="img/menu-3-barras.png" align="right">
+                </a>
+            </div>
+        </div>
+        <!-- Dados Básicos -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/dados-basicos.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 dados-texto">Dados Básicos</p>
+                </div>
+            </a>
+        </div>
+        <!-- Saúde -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/saude.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 saude-texto">Saúde</p>
+                </div>
+            </a>
+        </div>
+        <!-- Rotina -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/rotina.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 rotina-texto">Rotina</p>
+                </div>
+            </a>
+        </div>
+        <!-- Enquetes -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/enquetes.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 enquetes-texto">Enquetes</p>
+                </div>
+            </a>
+        </div>
+        <!-- RG Felino -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-2">
+                    <img class="menu-icon" src="img/rg.png">
+                </div>
+                <div class="col-xs-10">
+                    <p class="weight8 rg-texto">RG Felino</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Adicionar -->
+    <!-- Adicionar > Menu-top -->
+    <section id="adicionar" class="collapse info">
+        <div class="row nav-menu">
+            <div class="col-xs-3">
+                <a href="#" data-toggle="collapse" data-target="#cats">
+                    <img class="back img-responsive" src="img/voltar.png">
+                </a>
+
+            </div>
+            <div class="col-xs-6 titulo">
+                <p class="weight12">ADICIONAR</p>
+            </div>
+
+            <div class="col-xs-3">
+                <a href="#" data-toggle="collapse" data-target="#">
+                    <img class="menu-lateral img-responsive" src="img/menu-3-barras.png" align="right">
+                </a>
+            </div>
+        </div>
+        <!-- Foto -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-12">
+                    <div class="weight8 adicionar-texto">Selecionar Foto</div>
+                    <div class="weight4 adicionar-input">gatinho.png</div>
+                </div>
+            </a>
+        </div>
+        <!-- Nascimento -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-12">
+                    <div class="weight8 adicionar-texto">Data de Nascimento</div>
+                    <div class="weight4 adicionar-input">15/03/2016</div>
+                </div>
+            </a>
+        </div>
+        <!-- Sexo -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-12">
+                    <div class="weight8 adicionar-texto">Sexo</div>
+                    <div class="weight4 adicionar-input">Masculino</div>
+                </div>
+            </a>
+        </div>
+        <!-- Pelagem -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-12">
+                    <div class="weight8 adicionar-texto">Pelagem</div>
+                    <div class="weight4 adicionar-input">Longo</div>
+                </div>
+            </a>
+        </div>
+        <!-- Cor -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-12">
+                    <div class="weight8 adicionar-texto">Cor</div>
+                    <div class="weight4 adicionar-input">Amarelo, Tigrado</div>
+                </div>
+            </a>
+        </div>
+        <!-- Naturalidade -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-12">
+                    <div class="weight8 adicionar-texto">Naturalidade</div>
+                    <div class="weight4 adicionar-input">Rio de Janeiro, Brasil</div>
+                </div>
+            </a>
+        </div>
+        <!-- Procedência -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-12">
+                    <div class="weight8 adicionar-texto">Procedência</div>
+                    <div class="weight4 adicionar-input">Adotado</div>
+                </div>
+            </a>
+        </div>
+        <!-- Microchip -->
+        <div class="row change">
+            <a href="#" data toggle="collapse" data-target="#">
+                <div class="col-xs-12">
+                    <div class="weight8 adicionar-texto">Microchip</div>
+                    <div class="weight4 adicionar-input">Sim, 8191189MA</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!--
+    <ul id="listOfcats">
+    </ul>
+    -->
+</main>
+
+<footer>
+
+</footer>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tmpl.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/objectsTestFactory.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/main.js"></script>
+<script src="js/catList.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+</body>
 </html>
