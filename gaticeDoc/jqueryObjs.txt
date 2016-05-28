@@ -1,0 +1,63 @@
+{
+	nome:'',
+	senha:'',
+	gatos[],
+}
+
+gato
+{
+	 nome:'',
+	 foto:'',
+	 dtNasc:'',
+	 sexo:'',
+	 pelagem:'',
+	 cor:'',
+	 naturalidade:'',
+	 procedencia:'',
+	 microchip:'',
+	 perguntas[],
+}
+pergunta
+{
+	titulo:'',
+	subTitulo:'',
+	valor:'',
+	tipo:'',
+	categoria:'',
+	posiveis:[],
+	selecionada:'',
+	
+}
+
+function requisicao(url_v,jsonData_json,successCallback_f, errorCallback_f, vAsync, type_request) {
+	var errorCallBackLocal=errorCallBackFunction;
+	var myAsync = true;
+	loading.show();
+	if (vAsync != undefined || vAsync!=null){
+		myAsync = vAsync;
+	}else{
+		myAsync = true;
+	}
+	
+	if (errorCallback_f!=undefined||errorCallback_f !=null ){
+		errorCallBackLocal=errorCallback_f;
+	}
+	
+	
+		$.ajax({
+			url: '/NASA-APTC/'+url_v,
+			type: type_request || "get",
+			data: jsonData_json,
+			cache: false,
+			async: myAsync,
+			contentType: "application/json;charset=ISO-8859-1",
+			success: function(result, textStatus, jqXHR){ 
+				loading.close();
+				comportamentosTela(result);				
+				successCallback_f(result, textStatus, jqXHR);
+				setErrorMensage(result.actionErrors);
+			},
+			error: errorCallBackLocal
+		});
+}
+
